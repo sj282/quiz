@@ -1,0 +1,150 @@
+/* GLOBAL */
+
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    background-color: #808080;
+    font-size: 1.6rem;
+    margin: 0;
+    min-height: 800px;
+    color: white;
+}
+img {
+    max-width: 100%;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+nav {
+    margin: 20px 0;
+}
+
+/* HEADER */
+
+#logo_header {
+    width: 30rem;
+    display: block;
+    margin: 0 auto;
+}
+.logo_title {
+    font-size: 5rem;
+    text-align: center;
+}
+.nav-item {
+    background-color: white;
+    margin: 0 20px;
+}
+.nav-header .nav-item {
+    background-color: transparent;
+}
+.nav-item a {
+    font-size: 2rem;
+}
+header nav {
+    font-weight: bolder;
+}
+header {
+    color: #1E90FF;
+    text-shadow: white 0 0 3px;
+    background-image: linear-gradient(white, #808080);
+    border-bottom: solid #1E90FF;
+}
+
+/* MAIN */
+
+h2 {
+    text-align: center;
+}
+main {
+    margin: 30px 0;
+}
+main .nav-item {
+    box-shadow: 2px 2px 3px black ;
+    border-radius: 20px;
+    margin: 20px;
+}
+main .nav-item:hover {
+    box-shadow: none;
+}
+.nav-category .nav-link:hover {
+    color: white;
+}
+.message {
+    text-align: center;
+    color: green;
+    border: solid 2px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: white;
+}
+
+/* PAGE D'ACCUEIL */
+
+.home h3 {
+    font-size: 2rem;
+    text-align: left;
+}
+.home h4 {
+    font-size: 1.8rem;
+    text-align: left;
+}
+.home ol p {
+    text-align: left;
+}
+.home ul {
+    list-style-type: disc;
+}
+
+/* PAGE QUIZ */
+
+h3 {
+    font-size: 3rem;
+    text-align: center;
+}
+.quiz-container {
+    border: solid #1E90FF;
+    border-radius: 40px;
+    padding: 15px;
+    margin: 10px;
+    background-color: aliceblue;
+    color: #1E90FF;
+    box-shadow: 0 0 10px black;
+}
+.quiz-container-header {
+    border-bottom: solid 2px #1E90FF;
+}
+.quiz-container p {
+    padding: 20px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bolder;
+}
+.quiz-container .nav-link:hover {
+    color: white;
+}
+.right-answers, .wrong-answers {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px;
+    font-weight: bolder;
+    border: solid 2px;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+}
+.right-answers {
+    color: green;
+    background-color: #9ACD32;
+}
+.wrong-answers {
+    color: red;
+    background-color: #F08080;
+}
+.quiz-container aside {
+    display: flex;
+    justify-content: space-between;
+}

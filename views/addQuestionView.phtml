@@ -1,0 +1,67 @@
+<h2>Participer à la création du quiz en y ajoutant une question!</h2>
+
+<?php if(isset($_SESSION['message'])): ?>
+    <p class="message"><?= $_SESSION['message'] ?></p>
+    <?php unset($_SESSION['message']) ?>
+<?php endif ?>
+
+<form action="index.php" method="POST" class="addQuestionForm">
+    <fieldset>
+        <input type="text" name="action" value="addQuestion" hidden>
+        <ul>
+            <li>
+                <label for="questionTheme">Sélectionnez le thème de votre question</label>
+                <span>Si vous voulez créer un nouveau thème cliquez <a href="?page=addTheme">ici</a></span>
+                <select name="questionTheme" id="questionTheme" required>
+                    <?php foreach ($themes as $theme): ?>
+                        <option value="<?= $theme['themeId'] ?>"><?= $theme['name'] ?></option>
+                    <?php endforeach ?>
+                </select>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <label for="askQuestion">Posez votre question <span>(limité à 255 caractères)</span></label>
+                <input type="text" id="askQuestion" name="askQuestion" maxlength="255" required>
+                <span id="errorQuestion"></span>
+            </li>
+            <li>
+                <label for="answersChoice">indiquez vos 3 réponses <span>(une seule doit être correct)</span></label>
+                <div class="answers">
+                    <input type="text" class="answersChoice" id="choice1" name="answer1" maxlength="255" required>
+                    <span id="errorAnswer1"></span>
+                </div>
+                <div class="answers">
+                    <input type="text" class="answersChoice" id="choice2" name="answer2" maxlength="255" required>
+                    <span id="errorAnswer2"></span>
+                </div>
+                <div class="answers">
+                    <input type="text" class="answersChoice" id="choice3" name="answer3" maxlength="255" required>
+                    <span id="errorAnswer3"></span>
+                </div>
+            </li>
+            <li>
+                <p>Quelle est la bonne réponse ?</p>
+                <div class="answersRadio">
+                    <label for="answer1">réponse n°1</label>
+                    <input type="radio" id="answer1" name="rightAnswer" value="réponse n°1">
+                </div>
+                <div class="answersRadio">
+                    <label for="answer2">réponse n°2</label>
+                    <input type="radio" id="answer2" name="rightAnswer" value="réponse n°2">
+                </div>
+                <div class="answersRadio">
+                    <label for="answer3">réponse n°3</label>
+                    <input type="radio" id="answer3" name="rightAnswer" value="réponse n°3">
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <button type="submit" id="addQuestion" class="btnConfirm">Soumettre votre question</button>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+
+<script src="js/check.js"></script>

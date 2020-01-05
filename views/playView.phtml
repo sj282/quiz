@@ -1,0 +1,32 @@
+<h3>QUIZ <?= $nameOfCategory ?></h3>
+
+<div class="quiz-container">
+<!-- AFFICHAGE DE LA QUESTION -->
+    <div class="quiz-container-header">
+        <h3>question n° 1</h3>
+        <aside>
+            <div class="question-number">1/25</div>
+            <div class="right-and-wrong">
+                <div class="right-answers"><i class="fas fa-check-circle"></i> 3</div>
+                <div class="wrong-answers"><i class="fas fa-times-circle"></i> 5</div>
+            </div>
+        </aside>
+    </div>
+    <!-- AFFICHAGE DES REPONSES -->
+    <article>
+        <p id="question"><?= $questions[0]['question'] ?></p>
+        <nav class="nav-answers">
+            <ul class="nav justify-content-center">
+                <li class="nav-item btn btn-outline-primary">
+                    <a class="nav-link <?= $answers[0]['trueOrFalse'] ?>" href="*"><?= $answers[0]['answer'] ?></a>
+                </li>
+                <li class="nav-item btn btn-outline-primary">
+                    <a class="nav-link <?= $answers[1]['trueOrFalse'] ?>" href="*"><?= $answers[1]['answer'] ?></a>
+                </li>
+                <li class="nav-item btn btn-outline-primary">
+                    <a class="nav-link <?= $answers[2]['trueOrFalse'] ?>" href="*"><?= $answers[2]['answer'] ?></a>
+                </li>
+            </ul>
+        </nav>
+    </article>
+</div>

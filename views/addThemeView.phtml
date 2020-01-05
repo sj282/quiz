@@ -1,0 +1,20 @@
+<p>Sur cette page vous pouvez créer un nouveau thème, sachez néanmoins que pour que ce thème apparaisse dans les quiz, il doit contenir au moins 10 questions.</p>
+
+<?php if(isset($_SESSION['message'])): ?>
+    <p class="message"><?= $_SESSION['message'] ?></p>
+    <?php unset($_SESSION['message']) ?>
+<?php endif ?>
+
+<form action="index.php" method="POST" class="addThemeForm">
+    <fieldset>
+        <input type="text" name="action" value="addTheme" hidden>
+        <ul>
+            <li><label for="themeName">Indiquez dans le champ ci-dessous le nom de votre thème <span>(limité à 30 caractères)</span></label></li>
+            <li><input type="text" id="themeName" name="themeName" maxlength="30" required></li>
+            <li>
+                <button type="submit" class="btn btn-outline-primary" id="btnAddTheme">Valider</button>
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>

@@ -1,0 +1,64 @@
+<h2>Sur cette page vous pouvez supprimer les questions et leurs réponses associées ou/et un thème complet</h2>
+
+<?php if(isset($_SESSION['message'])): ?>
+    <p class="message"><?= $_SESSION['message'] ?></p>
+    <?php unset($_SESSION['message']) ?>
+<?php endif ?>
+
+<section class="del">
+    <h3>SUPPRIMER DES QUESTIONS</h3>
+    <fieldset>
+        <form action="index.php" method="POST" class="deleteForm">
+            <input type="text" name="action" value="selectQuestionsToDeleteByTheme" hidden>
+                <label for="selectQuestionsToDeleteByTheme">Sélectionnez une catégorie pour afficher les questions</label>
+                <p class="red">ATTENTION! Après avoir validé, vous aurez accès à toutes les questions de la catégorie selectionnée... C'est pas beau de tricher!</p>
+                <select name="selectQuestionsToDeleteByTheme" id="selectQuestionsToDeleteByTheme">
+                    <?php foreach ($themes as $theme): ?>
+                        <option value="<?= $theme['themeId'] ?>"><?= $theme['name'] ?></option>
+                    <?php endforeach ?>
+                </select>
+                <button type="submit" class="btnConfirm">Valider</button>
+        </form>
+
+        <?php if (isset($questions)): ?>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">questions</th>
+                        <th scope="col">supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($questions as $question): ?>
+                        <tr>
+                            <td><?= $question['question'] ?></td>
+                            <td class=""><input type="checkbox" value="<?= $question['id'] ?>" class="checkboxDelete"></td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+            <div>
+                <button class="btnConfirm" id="btnDelete">supprimer les questions selectionnées</button>
+            </div>
+        <?php else: ?>
+            <p>Veuillez sélectionner une catégorie pour afficher les questions</p>
+        <?php endif ?>
+    </fieldset>
+</section>
+
+<section class="del">
+    <h3>SUPPRIMER UN THEME</h3>
+    <fieldset>
+        <form action="index.php" method="POST" class="deleteForm">
+            <input type="text" name="action" value="deleteTheme" hidden>
+            <label for="selectCategoryToDelete">Sélectionnez une catégorie à supprimer</label>
+            <p class="red">ATTENTION! En supprimant une catégorie, vous supprimez également toutes les questions associées à ce thème</p>
+            <select name="selectCategoryToDelete" id="selectCategoryToDelete">
+                <?php foreach ($themes as $theme): ?>
+                    <option value="<?= $theme['themeId'] ?>"><?= $theme['name'] ?></option>
+                <?php endforeach ?>
+            </select>
+            <button type="submit" class="btnConfirm" onclick="return confirm('Etes vous certain de vouloir supprimer cette catégorie et toute ces questions ?')">Supprimer</button>
+        </form>
+    </fieldset>
+</section>

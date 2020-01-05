@@ -1,0 +1,1 @@
+Pensez à interdire les symboles '' & dans la création de thème (à faire en js) cause des problèmes lors du passage des infos en $_get sur la page de selection d'une catégorie de quiz)

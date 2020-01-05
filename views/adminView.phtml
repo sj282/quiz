@@ -1,0 +1,20 @@
+<h2>Que voulez vous faire ?</h2>
+<?php if(isset($_SESSION['message'])): ?>
+    <p class="message"><?= $_SESSION['message'] ?></p>
+    <?php unset($_SESSION['message']) ?>
+<?php endif ?>
+<div>
+    <nav class="nav-category">
+        <ul class="nav justify-content-center">
+            <li class="nav-item btn btn-outline-dark">
+                <a class="nav-link" href="?page=addQuestion"><i class="fas fa-plus"></i> Ajouter une question</a>
+            </li>
+            <li class="nav-item btn btn-outline-dark">
+                <a class="nav-link" href="?page=deleteQuestion"><i class="fas fa-minus"></i> Supprimer une question ou un thème</a>
+            </li>
+            <li class="nav-item btn btn-outline-dark">
+                <a class="nav-link" href="?page=editQuestion"><i class="fas fa-edit"></i> Modifier une question</a>
+            </li>
+        </ul>
+    </nav>
+</div>

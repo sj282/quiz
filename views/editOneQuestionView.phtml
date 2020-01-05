@@ -1,0 +1,112 @@
+<h3>Modifier la question</h3>
+
+<p>Pour ne pas modifier un champ, il vous suffit de laisser la valeur par défaut.</p>
+
+<form action="index.php" method="POST" class="editQuestionForm">
+    <fieldset>
+        <?php if(isset($_SESSION['message'])): ?>
+            <p class="message"><?= $_SESSION['message'] ?></p>
+            <?php unset($_SESSION['message']) ?>
+        <?php endif ?>
+
+        <input type="text" name="action" value="editOneQuestion" hidden>
+        <input type="text" name="id" value="<?= $questionId ?>" hidden> 
+        <ul>
+            <li>
+                <label for="questionTheme">Thème de la question</label>
+                <select name="questionTheme" id="questionTheme" required>
+                    <?php foreach ($themes as $theme): ?>
+                        <?php if ($theme['name'] === $questionData[0]['name']) : ?>
+                            <option value="<?= $theme['themeId'] ?>" selected="selected"><?= $theme['name'] ?></option>
+                        <?php else : ?>
+                            <option value="<?= $theme['themeId'] ?>"><?= $theme['name'] ?></option>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </select>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <label for="askQuestion">Modifier la question <span>(limité à 255 caractères)</span></label>
+                <input type="text" id="askQuestion" name="askQuestion" maxlength="255" value="<?= $questionData[0]['question'] ?>" required>
+                <span id="errorQuestion"></span>
+            </li>
+            <li>
+                <label for="answersChoice">Modifier les réponses <span>(une seule doit être correct)</span></label>
+                <div class="answers">
+                    <input type="text" class="answersChoice" id="choice1" name="answer1" maxlength="255" value="<?= $questionData[0]['answer'] ?>" required>
+                    <input type="text" name="answerId1" value="<?= $questionData[0]['answer_id'] ?>" hidden>
+                    <span id="errorAnswer1"></span>
+                </div>
+                <div class="answers">
+                    <input type="text" class="answersChoice" id="choice2" name="answer2" maxlength="255" value="<?= $questionData[1]['answer'] ?>" required>
+                    <input type="text" name="answerId2" value="<?= $questionData[1]['answer_id'] ?>" hidden>
+                    <span id="errorAnswer2"></span>
+                </div>
+                <div class="answers">
+                    <input type="text" class="answersChoice" id="choice3" name="answer3" maxlength="255" value="<?= $questionData[2]['answer'] ?>" required>
+                    <input type="text" name="answerId3" value="<?= $questionData[2]['answer_id'] ?>" hidden>
+                    <span id="errorAnswer3"></span>
+                </div>
+            </li>
+            <li>
+                <p>Quelle est la bonne réponse ?</p>
+
+                <?php if ($questionData[0]['trueOrFalse'] === 'true') : ?>
+
+                    <div class="answersRadio">
+                        <label for="answer1">réponse n°1</label>
+                        <input type="radio" id="answer1" name="rightAnswer" value="réponse n°1" checked="checked">
+                    </div>
+                    <div class="answersRadio">
+                        <label for="answer2">réponse n°2</label>
+                        <input type="radio" id="answer2" name="rightAnswer" value="réponse n°2">
+                    </div>
+                    <div class="answersRadio">
+                        <label for="answer3">réponse n°3</label>
+                        <input type="radio" id="answer3" name="rightAnswer" value="réponse n°3">
+                    </div>
+
+                <?php elseif ($questionData[1]['trueOrFalse'] === 'true') : ?>
+
+                    <div class="answersRadio">
+                        <label for="answer1">réponse n°1</label>
+                        <input type="radio" id="answer1" name="rightAnswer" value="réponse n°1">
+                    </div>
+                    <div class="answersRadio">
+                        <label for="answer2">réponse n°2</label>
+                        <input type="radio" id="answer2" name="rightAnswer" value="réponse n°2" checked="checked">
+                    </div>
+                    <div class="answersRadio">
+                        <label for="answer3">réponse n°3</label>
+                        <input type="radio" id="answer3" name="rightAnswer" value="réponse n°3">
+                    </div>
+
+                <?php else : ?>
+
+                    <div class="answersRadio">
+                        <label for="answer1">réponse n°1</label>
+                        <input type="radio" id="answer1" name="rightAnswer" value="réponse n°1">
+                    </div>
+                    <div class="answersRadio">
+                        <label for="answer2">réponse n°2</label>
+                        <input type="radio" id="answer2" name="rightAnswer" value="réponse n°2" >
+                    </div>
+                    <div class="answersRadio">
+                        <label for="answer3">réponse n°3</label>
+                        <input type="radio" id="answer3" name="rightAnswer" value="réponse n°3" checked="checked">
+                    </div>
+
+                <?php endif ?>
+
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <button type="submit" class="btnConfirm" id="editQuestion">Modifier la question</button>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+
+<script src="js/check.js"></script>

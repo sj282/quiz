@@ -1,0 +1,35 @@
+<h2>ici vous pouvez : Modifier une question, ou ses réponses ou encore laquelle des 3 réponses est la bonne ou bien changer la question de catégorie</h2>
+<section class="editPage">
+    <?php if(isset($_SESSION['message'])): ?>
+        <p class="message"><?= $_SESSION['message'] ?></p>
+        <?php unset($_SESSION['message']) ?>
+    <?php endif ?>
+
+    <fieldset>
+        <form action="index.php" method="POST" class="editForm">
+            <input type="text" name="action" value="chooseCategoryToEdit" hidden>
+            <label for="selectCategoryToEdit">Tout d'abord selectionnez la catégorie à laquelle appartient la question à modifier, puis cliquez sur la question.</label>
+            <p class="red">ATTENTION! Ici vous accédez à toutes les questions et les réponses du jeu... Ne vous gâchez pas le plaisir en trichant!</p>
+            <select name="selectCategoryToEdit" id="selectCategoryToEdit">
+
+                <?php foreach ($themes as $theme): ?>
+                    <option value="<?= $theme['themeId'] ?>"><?= $theme['name'] ?></option>
+                <?php endforeach ?>
+
+            </select>
+            <button type="submit" class="btnConfirm">valider</button>
+        </form>
+
+        <?php if (isset($questions)): ?>
+            <ul>
+                <?php foreach ($questions as $question): ?>
+                    <li><a href="index.php?id=<?= $question['id'] ?>"><?= $question['question'] ?></a></li>
+                <?php endforeach ?>
+            </ul>
+
+        <?php else: ?>
+            <p>Veuillez sélectionner une catégorie pour afficher les questions</p>
+        <?php endif ?>
+
+    </fieldset>
+</section>

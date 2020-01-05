@@ -1,0 +1,16 @@
+<h2>Sélectionnez une catégorie de quiz</h2>
+
+<div>
+    <nav class="nav-category">
+        <ul class="nav justify-content-center">
+            <?php foreach ($themes as $theme): ?>
+                <li class="nav-item btn btn-outline-dark">
+                    <a class="nav-link" href="?page=play&category=<?= $theme['themeId'] ?>"><?= $theme['name'] ?></a>
+                </li>
+           <?php endforeach ?>
+            <li class="nav-item btn btn-outline-dark">
+                <a class="nav-link" href="?page=mix"><i class="fas fa-question-circle"></i> Mix</a>
+            </li>
+        </ul>
+    </nav>
+</div>

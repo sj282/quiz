@@ -1,0 +1,153 @@
+form {
+    font-size: 2.5rem;
+    margin: 30px 0;
+}
+label, #questionTheme {
+    display: block;
+}
+#questionTheme {
+    width: 20%;
+    margin: 0 40%;
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+ul {
+    list-style: none;
+    text-align: center;
+}
+input, select {
+    border-radius: 20px;
+    color: #1E90FF;
+    font-size: 2rem;
+}
+span {
+    font-size: 1.8rem;
+}
+input {
+    padding: 10px;
+}
+.red {
+    color: red;
+    background-color: white;
+    width: 60%;
+    margin: 30px 20%;
+    font-size: 2rem;
+}
+#askQuestion {
+    width: 80%;
+    margin: 0 10%;
+}
+.addQuestionForm ul, .editQuestionForm ul {
+padding-left: 0;}
+li {
+    margin: 25px 0;
+}
+.answers {
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top;
+}
+#errorAnswer1, #errorAnswer2, #errorAnswer3, #errorQuestion {
+    display: block;
+    color: red;
+    max-width: 80%;
+    margin: 10px 10%;
+}
+.answersRadio {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 30px
+}
+.noError {
+    display: none;
+} 
+#btnAddQuestion, #btnAddTheme, #btnDeleteQuestion {
+    padding: 5px 10px;
+    font-size: 2.5rem;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 2px 2px 3px black ;
+}
+#btnAddQuestion:hover, #btnAddTheme:hover, #btnDeleteQuestion:hover {
+    background-color: #1E90FF;
+    box-shadow: none;
+}
+.del h3 {
+    text-decoration: underline;
+    margin-top: 50px;
+}
+fieldset {
+    border: solid #1E90FF;
+    border-radius: 60px;
+    width: 84%;
+    margin: 0 8%;
+}
+.btnConfirm {
+    margin: auto;
+    box-shadow: 2px 2px 3px black ;
+    border-radius: 20px;
+    margin: 20px;
+    color: #1E90FF;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+    font-size: 2.2rem;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btnConfirm:hover {
+    box-shadow: none;
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+    text-decoration: none;
+}
+.deleteForm, .editForm {
+    text-align: center;
+}
+.deleteForm select, .editForm select {
+    font-size: 2.5rem;
+    padding: 5px;
+}
+
+/* PAGE MODIFICATION */
+
+.editPage ul {
+    list-style-type: disc;
+    text-align: left;
+    padding-right: 40px;
+}
+.editPage a {
+    color: black;
+}
+.editPage li {
+    margin: 10px 0;
+    font-size: 2rem;
+}
+.editPage li:nth-child(even) {
+    background-color: #797979;
+}
+
+/* TABLEAU D'AFFICHAGE DES QUESTIONS */
+
+table {
+    font-size: 2rem;
+}
+.table th, .table td {
+    border-bottom: 3px solid #1E90FF;
+    border-top: 3px solid #1E90FF;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.checkboxDelete {
+    width: 25px;
+    height: 25px;
+}
